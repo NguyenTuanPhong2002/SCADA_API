@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="app">
+    <div class="col-2">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <img class="img-logo" src="~/images/logo.png" alt="logo" />
+            </li>
+            <li class="nav-item nav-item1">
+                <button onclick="connect()" id="btn-conn" type="button" class="btn btn-outline-primary">Connect</button>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">MyTank</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trend Temperature</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trend level</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Alarm</a>
+            </li>
+            <li class="nav-item">
+                <button onclick="disconnect()" id="btn-disconn" type="button" class="btn btn-outline-danger">Disconnect</button>
+            </li>
+            <li class="nav-item">
+                <button onclick="logout()" id="btn-logout" type="button" class="btn btn-outline-danger">Logout</button>
+            </li>
+        </ul>
+    </div>
+    <div class="col-10 control-group">
+        <div class="col-2 control-item">
+            <div class="username-group">
+                <!-- <button type="button" class="btn btn-success">Connect</button>
+                <button type="button" class="btn btn-success">Disconnect</button> -->
+                <span id="userName">User Name</span>
+                <span id="statusConn">Disconnected</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="tank-group">
+                <div class="tank">
+                    <span class="tank-name">Tank</span>
+                    <img class="tank-img" src="~/images/tank.png" alt="Tank" />
+                    <span class="tank-description">FusionCharts Trial</span>
+                    <div class="rule-level">
+                        <span class="rule-item">- Full</span>
+                        <span class="rule-item">- 0.75m</span>
+                        <span class="rule-item">- 0.5m</span>
+                        <span class="rule-item">- 0.25m</span>
+                        <span class="rule-item">- Empty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="grap-group">
+                <div class="grap">
+                    <img class="grap-img" src="~/images/bieudo.png" alt="Grap" />
+                </div>
+
+                <div id="temp" class="hand min-hand"></div>
+            </div>
+        </div>
+
+        <div class="col-12 btn-control-group">
+            <div class="col-2 btn-item">
+                <span class="btn-name">Tín hiệu đọc lưu lượng</span>
+                <button class="round-btn"></button>
+            </div>
+            <div class="col-2 btn-item">
+                <span class="btn-name">Tín hiệu gửi SMS/Email</span>
+                <button class="round-btn"></button>
+            </div>
+            <div class="col-2 btn-item">
+                <span class="btn-name">Cảnh báo lưu lượng</span>
+                <button class="round-btn"></button>
+            </div>
+            <div class="col-2 btn-item">
+                <span class="btn-name">Cảnh báo nhiệt độ</span>
+                <button id="btn-temp" class="round-btn"></button>
+            </div>
+            <div class="col-2 btn-item">
+                <span class="btn-name">Cảnh báo vị trí</span>
+                <button class="round-btn"></button>
+            </div>
+            <div class="col-2 btn-item">
+                <span class="btn-name">Chuông cảnh báo</span>
+                <button id="btn-wr" class="round-btn" style="background-color : red"></button>
+            </div>
+        </div>
+
+        <div class="alarm">
+            <h1>Current Time</h1>
+            <div id="current-time"></div>
+            <div class="create-alarm">
+                <div>Set Alarm</div>
+                <div class="form-actions">
+                    <form>
+                        <div class="alarm-inputs">
+                            <input type="number"
+                                   name="hour"
+                                   placeholder="Enter hours"
+                                   min="0"
+                                   max="12"
+                                   required />
+                            <input type="number"
+                                   name="min"
+                                   min="0"
+                                   max="60"
+                                   placeholder="Enter min"
+                                   required />
+                            <input type="number"
+                                   name="sec"
+                                   min="0"
+                                   max="60"
+                                   placeholder="Enter seconds"
+                                   required />
+                            <select class="select-zone" name="zone" required>
+                                <option value="" selected disabled>Zone</option>
+                                <option value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-success">Set Alarm</button>
+                    </form>
+                </div>
+            </div>
+            <div id="active-alarm">
+                <div id="alarm-text"></div>
+                <button id="clear-alarm">Clear Alarm</button>
+            </div>
+            <audio id="alarm-audio"></audio>
+        </div>
+
+
+    </div>
+</div>
